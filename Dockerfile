@@ -13,11 +13,11 @@ RUN wget http://download.osgeo.org/libspatialindex/spatialindex-src-1.8.5.tar.gz
   cd - && \
   rm -rf spatialindex-src-1.8.5* && \
   ldconfig
-RUN mkdir src 
 WORKDIR /data
 COPY . . 
 RUN pip3 install -r requirements.txt
 WORKDIR /notebooks
+COPY . . 
 ENV TINI_VERSION v0.6.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 RUN chmod +x /usr/bin/tini
