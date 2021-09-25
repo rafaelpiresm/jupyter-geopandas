@@ -14,12 +14,10 @@ RUN wget http://download.osgeo.org/libspatialindex/spatialindex-src-1.8.5.tar.gz
   rm -rf spatialindex-src-1.8.5* && \
   ldconfig
 RUN mkdir src 
-WORKDIR src/
+WORKDIR /data
 COPY . . 
 RUN pip3 install -r requirements.txt
-RUN python3 modukle.py
-RUN rm /src/data/raw_data.csv
-WORKDIR /src/notebooks
+WORKDIR /notebooks
 ENV TINI_VERSION v0.6.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 RUN chmod +x /usr/bin/tini

@@ -3,8 +3,11 @@ services:
   jupyter:
     image: rafaelpiresm/jupyter-geopandas
     volumes:
-      - myapp:/src/notebooks/
+      - myapp:/notebooks/
+      - data:/data/
     ports:
       - "8888:8888"
 volumes:
+  data:
   myapp:
+    
